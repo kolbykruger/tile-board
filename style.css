@@ -1,0 +1,178 @@
+.draggable {
+    width: 5rem;
+    height: 5rem;
+    font-size: 30px;
+    background: #FCE588;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25em;
+    -webkit-user-select: none;
+            user-select: none;
+    cursor: pointer;
+    transition: opacity 150ms ease-in-out;
+    font-family: "Times New Roman";
+  }
+  .draggable:hover, .draggable:focus {
+    opacity: 0.75;
+  }
+  .draggable.pink {
+    background: #ffb8d2;
+  }
+  .draggable.green {
+    background: #A3BE8C;
+  }
+  .draggable-source--is-dragging {
+    opacity: 0.5;
+  }
+  .draggable-mirror {
+    box-shadow: 0 0.938em 2.188em rgba(50, 50, 93, 0.15), 0 0.313em 0.938em rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+
+  .droppable {
+    position: relative;
+    margin: 1px;
+    width: 5rem;
+    height: 5rem;
+    font-size: 30px;
+    border-radius: 0.25em;
+    outline: 2px dashed transparent;
+    outline-offset: -3px;
+    transition: outline 250ms ease-in-out;
+  }
+  .droppable.drop-origin:not(.draggable-droppable--occupied)::after {
+    content: attr(data-letter);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.05);
+    outline: 2px dashed rgba(0, 0, 0, 0.25);
+    outline-offset: -3px;
+    border-radius: 0.25em;
+    font-family: "Times New Roman";
+    font-size: 30px;
+    opacity: 0.5;
+  }
+  .droppable.draggable-droppable--occupied::after {
+    opacity: 0;
+  }
+
+  section {
+    margin-bottom: 1em;
+  }
+
+  hr {
+      margin: 0.5em 0;
+  }
+
+  .letters.letters-default.draggable-container--is-dragging + * + * + * + * .droppable,
+  .letters.letters-extras.draggable-container--is-dragging + * + * + * .droppable,
+  .letters.letters-extras-green.draggable-container--is-dragging + * + * .droppable,
+  .letters.letters-extras-pink.draggable-container--is-dragging + * .droppable,
+  .output.draggable-container--is-dragging .droppable {
+    outline-color: rgba(0, 0, 0, 0.25);
+  }
+
+  .letters {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+  }
+
+  .output {
+    display: flex;
+    flex-flow: row wrap;
+    background: #fff;
+    padding: 0.25em;
+    border-radius: 0.25em;
+    box-shadow: 0 0.063em 0.313em 0 rgba(0, 0, 0, 0.07), 0 0.438em 1.063em 0 rgba(0, 0, 0, 0.1);
+  }
+  .output .droppable {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .game-options {
+    background: #fff;
+    padding: 2em;
+    border-radius: 0.25em;
+    box-shadow: 0 0.063em 0.313em 0 rgba(0, 0, 0, 0.07), 0 0.438em 1.063em 0 rgba(0, 0, 0, 0.1);
+  }
+  .game-options .fields {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .game-options .fields .fields-full button {
+    -appearance: none;
+    -webkit-apearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: none;
+    line-height: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    display: block;
+    padding: 0.5em;
+    margin: 0.25em;
+    min-width: 16px;
+    border-radius: 3rem;
+    text-align: center;
+    background: #557cf1;
+    color: #fff;
+    user-select: none;
+    cursor: pointer;
+  }
+  .game-options h2 {
+      margin-top: 0;
+  }
+  .game-options label {
+    display: block;
+    padding: 0.5em;
+    margin: 0.25em;
+    min-width: 40px;
+    border-radius: 3rem;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  .game-options input[type=checkbox] {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .game-options input[type=checkbox]:checked + label {
+    background: #557cf1;
+    color: #fff;
+  }
+  .game-options input[type=checkbox] + label {
+    background: #f6f9fc;
+  }
+
+  main#page {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  body {
+    background: #f6f9fc;
+    color: #2E3440;
+  }
+
+  #generatedURL{
+      margin-top: 1em;
+      padding: 0.5em;
+      background: #f6f9fc;
+      border-radius: 0.25em;
+      border: 1px solid #ddd;
+      font-size: 20px;
+      width: 100%;
+  }
+  #generatedURL[value=""] {
+      opacity: 0;
+  }
